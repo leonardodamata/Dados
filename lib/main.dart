@@ -14,10 +14,29 @@ void main() {
     ),
   );
 }
-
 class Dados extends StatelessWidget {
-  @override
+ @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Row(
+        children: [
+          Expanded(
+            child: TextButton(
+              onPressed: () {
+                print('Botão esquerdo pressionado');
+              },
+              child: Image.asset('imagens/dado1.png'),
+            ),
+          ),
+          Expanded(
+            child: TextButton(onPressed: () {
+              print('Botão direito pressionado');
+            },
+            child: Image.asset('imagens/dado2.png'),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
