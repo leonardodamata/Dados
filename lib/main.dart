@@ -15,8 +15,10 @@ void main() {
   );
 }
 class Dados extends StatelessWidget {
- @override
+  @override
   Widget build(BuildContext context) {
+    var numeroDadoEsquerda = 3;
+
     return Center(
       child: Row(
         children: [
@@ -25,18 +27,18 @@ class Dados extends StatelessWidget {
               onPressed: () {
                 print('Botão esquerdo pressionado');
               },
-              child: Image.asset('imagens/dado1.png'),
+              child: Image.asset('imagens/dado$numeroDadoEsquerda.png'),
             ),
-          ),
-          Expanded(
-            child: TextButton(onPressed: () {
-              print('Botão direito pressionado');
-            },
-            child: Image.asset('imagens/dado2.png'),
-            ),
-          ),
-        ],
-      ),
-    );
+         ),
+         Expanded(
+           child: TextButton(onPressed: () {
+             print('Botão direito pressionado');
+           },
+             child: Image.asset('imagens/dado2.png'),
+           ),
+         ),
+       ],
+     ),
+   );
   }
 }
