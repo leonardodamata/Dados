@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   return runApp(
@@ -14,31 +15,54 @@ void main() {
     ),
   );
 }
-class Dados extends StatelessWidget {
+
+class Dados extends StatefulWidget {
+  const Dados({super.key});
+
+  @override
+  State<Dados> createState() => _DadosState();
+
+
+}
+
+class _DadosState extends State<Dados> {
+
+  int numeroDadoEsquerda = 1;
+  int numeroDadoDireita = 1;
+
+  void alterarFaceDosDados(){
+    setState(() {
+
+      numeroDadoEsquerda = Random().nextInt(6) +1;
+      numeroDadoDireita = Random().nextInt(6) + 1;
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
-    var numeroDadoEsquerda = 3;
-
     return Center(
       child: Row(
         children: [
           Expanded(
             child: TextButton(
               onPressed: () {
-                print('Botão esquerdo pressionado');
+                alterarFaceDosDados();
+
               },
               child: Image.asset('imagens/dado$numeroDadoEsquerda.png'),
             ),
-         ),
-         Expanded(
-           child: TextButton(onPressed: () {
-             print('Botão direito pressionado');
-           },
-             child: Image.asset('imagens/dado2.png'),
-           ),
-         ),
-       ],
-     ),
-   );
+          ),
+          Expanded(
+            child: TextButton(onPressed: () {
+              alterarFaceDosDados();
+            },
+              child: Image.asset('imagens/dado$numeroDadoDireita.png'),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
+
